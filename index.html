@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CMA CGM | Track Shipment</title>
+  <link rel="icon" href="https://www.cma-cgm.com/App_Themes/global/images/favicon.ico">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f7fb;
+      margin: 0;
+      padding: 0;
+      color: #1b365d;
+    }
+    header {
+      background-color: #1b365d;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      animation: fadeInDown 1s ease-in-out;
+    }
+    @keyframes fadeInDown {
+      0% { transform: translateY(-20px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+    header img {
+      height: 50px;
+    }
+    .tracker-container {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .input-group {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .input-group input {
+      padding: 12px;
+      width: 60%;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    .input-group button {
+      padding: 12px 20px;
+      background-color: #e2001a;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+    .details {
+      display: none;
+      animation: fadeInDetails 1.5s ease-in-out;
+    }
+    @keyframes fadeInDetails {
+      0% { opacity: 0; transform: scale(0.95); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    .info-box {
+      background: #f1f4f9;
+      padding: 25px;
+      border-radius: 10px;
+      margin-top: 20px;
+      box-shadow: 0 0 6px rgba(0,0,0,0.05);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+    }
+    .progress-bar {
+      height: 25px;
+      background: #ddd;
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 20px 0;
+    }
+    .progress {
+      height: 100%;
+      width: 85%;
+      background-color: #1b365d;
+      color: white;
+      text-align: center;
+      line-height: 25px;
+      animation: slideProgress 2s ease-in-out;
+    }
+    @keyframes slideProgress {
+      from { width: 0; }
+      to { width: 85%; }
+    }
+    iframe {
+      width: 100%;
+      height: 400px;
+      margin-top: 20px;
+      border: none;
+      border-radius: 10px;
+    }
+    .map-details {
+      margin-top: 15px;
+      font-size: 14px;
+      background: #eef2f8;
+      padding: 10px 15px;
+      border-left: 5px solid #1b365d;
+      border-radius: 6px;
+    }
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+      background-color: #1b365d;
+      color: white;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="https://www.cma-cgm.com/App_Themes/global/images/logo.png" alt="CMA CGM Logo">
+    <h2>Shipment Tracking Portal</h2>
+  </header>
+
+  <div class="tracker-container">
+    <div class="input-group">
+      <input type="text" id="trackInput" placeholder="Enter your tracking code">
+      <button onclick="trackPackage()">Track</button>
+    </div>
+
+    <div class="details" id="detailsBox">
+      <h3>Tracking Details</h3>
+      <p><strong>Tracking Code:</strong> CMA-CGM-754203891CO</p>
+      <p><strong>Delivery Date:</strong> 30th July 2025</p>
+
+      <div class="info-box">
+        <h4>Receiver Information</h4>
+        <p><strong>Name:</strong> Luz Orbilia Diosa Henaophone</p>
+        <p><strong>Email:</strong> dluzorbilia@gmail.com</p>
+        <p><strong>Address:</strong> Medellín 050001, Colombia</p>
+      </div>
+
+      <h4>Package Details</h4>
+      <table>
+        <tr><th>Weight</th><th>Destination</th><th>Mode</th></tr>
+        <tr><td>10kg</td><td>Colombia</td><td>Freight</td></tr>
+      </table>
+
+      <h4>Delivery Progress</h4>
+      <div class="progress-bar">
+        <div class="progress">In Transit – Customs 85%</div>
+      </div>
+
+      <h4>Route Map</h4>
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d126915.89904006349!2d-75.6107993!3d6.2004354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m18!3e0!4m5!1s0x8e46984d77aa7ab1%3A0x33e3f66b1c2dc4f!2sJose%20Maria%20Cordova%20International%20Airport%2C%20Rionegro%2C%20Antioquia%2C%20Colombia!3m2!1d6.164535!2d-75.423075!4m5!1s0x8e442fed1b42e3a3%3A0x6e1464297f3e55e1!2sMedell%C3%ADn%2C%20Antioquia%2C%20Colombia!3m2!1d6.2476376!2d-75.5658153!5e0!3m2!1sen!2sco!4v1722165999283!5m2!1sen!2sco" allowfullscreen>
+      </iframe>
+
+      <div class="map-details">
+        <strong>Direction:</strong> From José María Córdova International Airport to Medellín, Antioquia, Colombia.<br>
+        <strong>Distance:</strong> Approx. 35 km<br>
+        <strong>Estimated Time:</strong> Around 45 minutes by road (depending on traffic)
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    THANKS FOR USING CMA-CGM
+  </footer>
+
+  <script>
+    const validCode = "CMA-CGM-754203891CO";
+
+    function trackPackage() {
+      const input = document.getElementById("trackInput").value.trim();
+      if (input === validCode) {
+        const details = document.getElementById("detailsBox");
+        details.style.display = "none";
+        setTimeout(() => {
+          details.style.display = "block";
+          new Audio('https://cdn.pixabay.com/audio/2022/03/15/audio_1d695b7fc3.mp3').play();
+        }, 2000);
+      } else {
+        alert("Invalid tracking code. Please try again.");
+      }
+    }
+  </script>
+
+</body>
+</html>
